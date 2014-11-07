@@ -1,18 +1,25 @@
 __author__ = 'Arnout Aertgeerts'
 
-from scipy.optimize import curve_fit
 from multipolyfit import multipolyfit
 import numpy as np
 
 
 class Fitter:
     def __init__(self, reader):
+        """
+        A class which fits a multi-variable polynomial to measurement data
+        :param reader: An object of the reader class containing the data
+        """
         self.reader = reader
         self.function = None
         self.powers = None
         self.beta = None
 
     def fit(self, degree):
+        """
+        Fit a multi-variable polynomial to the given reader data with a specified degree
+        :param degree: The maximum degree of the polynomial function
+        """
         x = []
         y = self.reader.space[self.reader.names[-1]]
 
@@ -25,6 +32,9 @@ class Fitter:
         self.powers = powers
 
     def print_function(self):
+        """
+        Print a pretty representation of the fitted function
+        """
         string = []
         for b in range(0, len(self.beta)):
             string.append(str(self.beta[b]))

@@ -43,6 +43,11 @@ class Reader:
         return space_dict
 
     def query(self, query):
+        """
+        Find a result value in the space matrix
+        :param query: A query dictionary containing values of all the input parameters
+        :return: A result value
+        """
         ordered_query = [0] * len(self.space)
 
         for key, value in query.iteritems():
@@ -51,6 +56,10 @@ class Reader:
         return self.dataframe.loc[int(ordered_query[0])].loc[int(ordered_query[1]), int(ordered_query[2])]
 
     def get_input_space(self):
+        """
+        Create the input space which is the left side of the space matrix containing unique combinations of input points
+        :return: The input space
+        """
         inputs = self.inputs
         dimension = 1
         repetition = []
@@ -86,7 +95,7 @@ class Reader:
     @property
     def output(self):
         """
-        Create the output vector
+        Create the output vector which gives the results for each combination of unique input combinations
         :return: The output vector
         """
         input_space = self.get_input_space()
@@ -117,6 +126,10 @@ class Reader:
         return inputs
 
     def inputs_dict(self):
+        """
+        The input vector as a dictionary that can be called using the names of the variables
+        :return: A dictionary
+        """
         dictionary = {}
         for i in range(0, len(self.inputs)):
             dictionary[self.names[i]] = self.inputs[i]

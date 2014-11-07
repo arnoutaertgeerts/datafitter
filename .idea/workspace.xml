@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f93a8202-cafd-4379-ae22-a98543d5be6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/datafitter/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/datafitter.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/datafitter/fitter.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/datafitter/plotter.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/datafitter/reader.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/u0098668.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datafitter/fitter.py" afterPath="$PROJECT_DIR$/datafitter/fitter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datafitter/plotter.py" afterPath="$PROJECT_DIR$/datafitter/plotter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datafitter/reader.py" afterPath="$PROJECT_DIR$/datafitter/reader.py" />
     </list>
     <ignored path="datafitter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +42,8 @@
       <file leaf-file-name="reader.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datafitter/reader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2193">
-              <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2414">
+              <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
               <folding>
                 <element signature="e#34#47#0" expanded="true" />
               </folding>
@@ -62,8 +54,8 @@
       <file leaf-file-name="plotter.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datafitter/plotter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="1054">
+              <caret line="43" column="67" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -72,10 +64,10 @@
       <file leaf-file-name="fitter.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/datafitter/fitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88262373" vertical-offset="32" max-vertical-offset="901">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.68469507" vertical-offset="0" max-vertical-offset="1071">
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
               <folding>
-                <element signature="e#34#70#0" expanded="true" />
+                <element signature="e#34#71#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,8 +88,8 @@
       <list>
         <option value="$PROJECT_DIR$/datafitter/__init__.py" />
         <option value="$PROJECT_DIR$/datafitter/reader.py" />
-        <option value="$PROJECT_DIR$/datafitter/fitter.py" />
         <option value="$PROJECT_DIR$/datafitter/plotter.py" />
+        <option value="$PROJECT_DIR$/datafitter/fitter.py" />
       </list>
     </option>
   </component>
@@ -361,8 +353,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/datafitter/reader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="2193">
-          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2414">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
           <folding>
             <element signature="e#34#47#0" expanded="true" />
           </folding>
@@ -371,18 +363,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/datafitter/plotter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="1054">
+          <caret line="43" column="67" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/datafitter/fitter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88262373" vertical-offset="32" max-vertical-offset="901">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.68469507" vertical-offset="0" max-vertical-offset="1071">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
           <folding>
-            <element signature="e#34#70#0" expanded="true" />
+            <element signature="e#34#71#0" expanded="true" />
           </folding>
         </state>
       </provider>
