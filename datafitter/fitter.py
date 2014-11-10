@@ -12,7 +12,6 @@ class Fitter:
         :param reader: An object of the reader class containing the data
         """
         self.reader = reader
-        self.function = None
         self.powers = None
         self.degree = 0
         self.beta = None
@@ -28,7 +27,6 @@ class Fitter:
         for i in range(0, len(self.reader.names)-1):
             x.append(self.reader.space[self.reader.names[i]])
 
-        self.function = multipolyfit(np.array(x).T, y, degree, model_out=True)
         (beta, powers) = multipolyfit(np.array(x).T, y, degree, powers_out=True)
         self.beta = beta
         self.degree = degree
@@ -59,7 +57,7 @@ class Fitter:
         self.fit(best[0]['degree'])
         return best
 
-    def parameter_based_func(self, inputs):
+    def function(self, inputs):
         """
         A function which calculates the output based on the beta and powers parameters.
         :param inputs: The input dictionary
@@ -78,7 +76,6 @@ class Fitter:
 
     def global_precision_error(self):
         """
-        WIP: Does not work!!
         Calculate the quality of the function based on the global error.
         The error is equal to the weighted sum of the difference of each point divided by the true value (data value)
         """
@@ -89,8 +86,8 @@ class Fitter:
             for name in self.reader.names:
                 query[name] = self.reader.space[name][i]
 
-            exact = self.reader.query(query)
-            function = self.parameter_based_func(query)
+            exact = query[self.reader.names[-1]]
+            function = self.function(query)
 
             error += abs(exact - function) / exact
 
