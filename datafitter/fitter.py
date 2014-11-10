@@ -14,6 +14,7 @@ class Fitter:
         self.reader = reader
         self.function = None
         self.powers = None
+        self.degree = 0
         self.beta = None
 
     def fit(self, degree):
@@ -30,6 +31,7 @@ class Fitter:
         self.function = multipolyfit(np.array(x).T, y, degree, model_out=True)
         (beta, powers) = multipolyfit(np.array(x).T, y, degree, powers_out=True)
         self.beta = beta
+        self.degree = degree
         self.powers = powers
 
         print 'The global precision error is: ' + str(100*self.global_precision_error()) + '%.'
