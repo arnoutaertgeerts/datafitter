@@ -34,6 +34,29 @@ class Fitter:
 
         print 'The global precision error is: ' + str(100*self.global_precision_error()) + '%.'
 
+    def best_fit(self, start, stop):
+        """
+        Find the best fit varying the polynomial degree from start to stop. The function also stores the best fit
+        parameters in the model.
+        :param start: The start degree >=2
+        :param stop: The stop degree which should be higher than the start degree
+        """
+        output = []
+
+        for i in range(start, stop+1):
+            self.fit(i)
+            error = self.global_precision_error()
+            output.append({
+                'degree': i,
+                'error': error
+            })
+
+        import operator
+        best = sorted(output, key=operator.itemgetter('error'))
+
+        self.fit(best[0]['degree'])
+        return best
+
     def parameter_based_func(self, inputs):
         """
         A function which calculates the output based on the beta and powers parameters.

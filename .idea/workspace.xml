@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f93a8202-cafd-4379-ae22-a98543d5be6f" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\u0098668\Documents\Modelica\datafitter\data\sample.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\u0098668\Documents\Modelica\datafitter\notebooks\test.ipynb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notebooks/Heatpump 2D data.ipynb" afterPath="$PROJECT_DIR$/notebooks/Heatpump 2D data.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datafitter/fitter.py" afterPath="$PROJECT_DIR$/datafitter/fitter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datafitter/reader.py" afterPath="$PROJECT_DIR$/datafitter/reader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notebooks/test.ipynb" afterPath="$PROJECT_DIR$/notebooks/test.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="datafitter.iws" />
@@ -64,8 +63,8 @@
       <file leaf-file-name="fitter.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/datafitter/fitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8304498" vertical-offset="1527" max-vertical-offset="2394">
-              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3633218" vertical-offset="630" max-vertical-offset="2877">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
               <folding>
                 <element signature="e#34#71#0" expanded="true" />
               </folding>
@@ -412,8 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/datafitter/fitter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8304498" vertical-offset="1527" max-vertical-offset="2394">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3633218" vertical-offset="630" max-vertical-offset="2877">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
           <folding>
             <element signature="e#34#71#0" expanded="true" />
           </folding>
