@@ -32,6 +32,8 @@ class Fitter:
         self.beta = beta
         self.powers = powers
 
+        print 'The global precision error is: ' + str(100*self.global_precision_error()) + '%.'
+
     def parameter_based_func(self, inputs):
         """
         A function which calculates the output based on the beta and powers parameters.
@@ -48,6 +50,26 @@ class Fitter:
             y = y + term
 
         return y
+
+    def global_precision_error(self):
+        """
+        Calculate the quality of the function based on the global error.
+        The error is equal to the weighted sum of the difference of each point divided by the true value (data value)
+        """
+        error = 0
+
+        for i in range(0, self.reader.length):
+            query = {}
+            for name in self.reader.names:
+                query[name] = self.reader.space[name][i]
+
+            exact = self.reader.query(query)
+            function = self.parameter_based_func(query)
+
+            error += abs(exact - function) / exact
+
+        error /= self.reader.length
+        return error
 
     def modelica_output(self):
         """
@@ -85,29 +107,3 @@ class Fitter:
         string.append(''.join(powers_string))
 
         return ''.join(string)
-
-
-    def print_function(self):
-        """
-        WIP: Print a pretty representation of the fitted function
-        """
-        string = []
-        for b in range(0, len(self.beta)):
-            string.append(str(self.beta[b]))
-            string.append('*(')
-            for p in range(0, len(self.powers[b])):
-                if p == 1:
-                    string.append('1 + ')
-                else:
-                    if self.powers[b][p] != 0:
-                        string.append(self.reader.names[p])
-                    else:
-                        string.append('1 + ')
-                    if self.powers[b][p] != 1:
-                        string.append('^')
-                        string.append(str(self.powers[b][p]))
-                        string.append(' + ')
-            string.append(')')
-        print ''.join(string)
-
-

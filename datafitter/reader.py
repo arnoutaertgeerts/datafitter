@@ -9,13 +9,22 @@ class Reader:
     def __init__(self, path, names):
         """
         A Reader which reads data from an excel file and builds a space that can be used to fit a curve.
-        :param names: List of names in the order they appear in the excel file/dataframe
-        :param path: The path to the excel file.
+        :param names: List of names in the order they appear in the excel file/dataframe, including the name of the
+        output variable as last element in the list. Names are structured in the following way in the excel file:
+
+        ****************** 3 *****
+        *     *  2  *            *
+        *  1  *******  Output(4) *
+        *     *  2  *            *
+        **************************
+
+        :param path: Path to the excel file.
         """
         self.path = path
         self.names = names
         self.extension = os.path.splitext(path)[1]
         self.space = self.space()
+        self.length = len(self.space[names[0]])
 
         print self.dataframe
 
@@ -50,7 +59,10 @@ class Reader:
         """
         ordered_query = self.inputsdict_to_array(query)
 
-        return self.dataframe.loc[int(ordered_query[0])].loc[int(ordered_query[1]), int(ordered_query[2])]
+        if len(ordered_query) > 2:
+            return self.dataframe.loc[int(ordered_query[0])].loc[int(ordered_query[1]), int(ordered_query[2])]
+        else:
+            return self.dataframe.loc[int(ordered_query[0]), int(ordered_query[1])]
 
     def get_input_space(self):
         """
