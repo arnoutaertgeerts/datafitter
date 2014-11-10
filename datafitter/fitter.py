@@ -78,6 +78,7 @@ class Fitter:
 
     def global_precision_error(self):
         """
+        WIP: Does not work!!
         Calculate the quality of the function based on the global error.
         The error is equal to the weighted sum of the difference of each point divided by the true value (data value)
         """
