@@ -48,10 +48,7 @@ class Reader:
         :param query: A query dictionary containing values of all the input parameters
         :return: A result value
         """
-        ordered_query = [0] * len(self.space)
-
-        for key, value in query.iteritems():
-            ordered_query[self.names.index(key)] = value
+        ordered_query = self.inputsdict_to_array(query)
 
         return self.dataframe.loc[int(ordered_query[0])].loc[int(ordered_query[1]), int(ordered_query[2])]
 
@@ -135,3 +132,16 @@ class Reader:
             dictionary[self.names[i]] = self.inputs[i]
 
         return dictionary
+
+    def inputsdict_to_array(self, dictionary):
+        """
+        Convert an inputs dictionary to an array in the right order which is the order the names are stored in the
+        names array.
+        :param dictionary: A dictionary containing data about inputs
+        """
+        array = [0] * len(self.space)
+
+        for key, value in dictionary.iteritems():
+            array[self.names.index(key)] = value
+
+        return array
