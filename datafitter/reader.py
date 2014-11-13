@@ -59,10 +59,10 @@ class Reader:
         """
         ordered_query = self.inputsdict_to_array(query)
 
-        if len(ordered_query) > 2:
+        if len(ordered_query) > 3:
             return self.dataframe.loc[int(ordered_query[0])].loc[int(ordered_query[1]), int(ordered_query[2])]
         else:
-            return self.dataframe.loc[int(ordered_query[0]), int(ordered_query[1])]
+            return self.dataframe.loc[float(ordered_query[0]), float(ordered_query[1])]
 
     def get_input_space(self):
         """
@@ -111,12 +111,19 @@ class Reader:
 
         length = len(input_space)
         output = np.array([])
+
+        #Loop over all input combinations
         for i in range(0, len(input_space[0])):
+            #Construct a query using these input combinations
             query = []
             for j in range(0, length):
                 query.append(input_space[j][i])
 
-            output = np.append(output, self.dataframe.loc[int(query[0])].loc[int(query[1]), int(query[2])])
+            if length > 2:
+                #TODO: Allow for query of non-integer parameters
+                output = np.append(output, self.dataframe.loc[int(query[0])].loc[int(query[1]), int(query[2])])
+            else:
+                output = np.append(output, self.dataframe.loc[query[0], query[1]])
 
         return output
 
@@ -128,8 +135,11 @@ class Reader:
         """
         inputs = []
 
-        for level in self.dataframe.index.levels:
-            inputs.append(level)
+        try:
+            for level in self.dataframe.index.levels:
+                inputs.append(level)
+        except AttributeError:
+            inputs.append(self.dataframe.index)
         inputs.append(self.dataframe.columns.values)
 
         return inputs
