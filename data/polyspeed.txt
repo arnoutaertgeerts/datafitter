@@ -1,0 +1,43 @@
+Integration started at T = 0 using integration method LSODAR
+(Multi-step solver for stiff and non-stiff ODE's with root finder (lsodar of ODEPACK))
+Integration terminated successfully at T = 1000000
+   CPU-time for integration      : 13.1 seconds
+   CPU-time for one GRID interval: 26.3 milli-seconds
+   Number of result points       : 20239
+   Number of GRID   points       : 501
+   Number of (successful) steps  : 313101
+   Number of F-evaluations       : 828023
+   Number of H-evaluations       : 395411
+   Number of Jacobian-evaluations: 21986
+   Number of (model) time events : 0
+   Number of (U) time events     : 0
+   Number of state    events     : 11128
+   Number of step     events     : 0
+   Minimum integration stepsize  : 0.0272
+   Maximum integration stepsize  : 140
+   Maximum integration order     : 3
+
+Profiling information for the blocks.
+Estimated overhead per call        0.00[us] total        0.000[s]
+the estimated overhead has been subtracted below.
+Name of block   , Block, Total CPU[s], Mean[us]    ( Min[us]    to Max[us]    ),   Called
+Entire model    :     0,       11.616,        8.99 (       0.00 to   237000.00),  1291899
+Event handling  :     1,        0.498,       22.37 (       0.00 to   237000.00),    22259
+Empty timer     :     2,        0.027,        0.02 (       0.00 to     1000.00),  1291899
+Outside of model:     3,        1.750,        1.35 (       0.00 to     9000.00),  1291898
+ Parameter code :     4,        0.000,        0.00 (       0.00 to        0.00),        1
+ Parameter code :     5,        0.000,        0.00 (       0.00 to        0.00),        1
+ Initial code   :     6,        0.000,        0.00 (       0.00 to        0.00),        1
+ Initial code   :     7,        0.237,   237000.00 (  237000.00 to   237000.00),        1
+ Initial code   :     8,        0.000,        0.00 (       0.00 to        0.00),        1
+ Output 3 eq    :     9,        0.174,        0.14 (       0.00 to     1000.00),  1269141
+DynamicsSection :    10,        9.330,        7.35 (       0.00 to     1000.00),  1269141
+ Dynamics code  :    11,        8.893,        7.01 (       0.00 to     1000.00),  1269141
+ Lin sys(1)     :    12,        0.079,        0.06 (       0.00 to     1000.00),  1269141
+ Dynamics code  :    13,        0.180,        0.14 (       0.00 to     1000.00),  1269141
+AcceptedSection1:    14,        0.074,        0.17 (       0.00 to     1000.00),   441118
+ Auxiliary code :    15,        0.044,        0.10 (       0.00 to     1000.00),   441118
+AcceptedSection2:    16,        1.034,        2.34 (       0.00 to     1000.00),   441118
+ Auxiliary2 code:    17,        1.000,        2.27 (       0.00 to     1000.00),   441118
+Calling terminal section
+... "dsfinal.txt" creating (final states)
