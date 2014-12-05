@@ -9,6 +9,7 @@ class Fitter:
     def __init__(self, reader):
         """
         A class which fits a multi-variable polynomial to measurement data
+
         :param reader: An object of the reader class containing the data
         """
         self.reader = reader
@@ -21,6 +22,7 @@ class Fitter:
         Fit a multi-variable polynomial to the given reader data with a specified degree
         :param degree: The maximum degree of the polynomial function
         """
+
         x = []
         y = self.reader.space[self.reader.names[-1]]
 

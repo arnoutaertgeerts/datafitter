@@ -6,10 +6,11 @@ import os
 
 
 class Reader:
-    def __init__(self, path, names):
+    def __init__(self, path, names, exclude=False):
         """
         A Reader which reads data from an excel file and builds a space that can be used to fit a curve.
         :param names: List of names in the order they appear in the excel file/dataframe, including the name of the
+        :param exclude: Result value to exclude from the fitting process
         output variable as last element in the list. Names are structured in the following way in the excel file:
 
         ****************** 3 *****
@@ -20,6 +21,7 @@ class Reader:
 
         :param path: Path to the excel file.
         """
+        self.exclude = exclude
         self.path = path
         self.names = names
         self.extension = os.path.splitext(path)[1]
@@ -27,6 +29,8 @@ class Reader:
         self.length = len(self.space[names[0]])
 
         print self.dataframe
+        print '---------------------------------------------------------------------------'
+        print self.space
 
     @property
     def dataframe(self):
@@ -39,7 +43,7 @@ class Reader:
     def space(self):
         """
         Build the point space where each combination of input points is unique and points to one output value.
-        :return: A (n+1 x mxpxq) matrix with n the number of different inputs and mxpxq the product of the input
+        :return: A (n+1 x m*p*q) matrix with n the number of different inputs and mxpxq the product of the input
         vector dimensions.
         """
         space_dict = {}
@@ -48,6 +52,16 @@ class Reader:
         space.append(self.output)
         for i in range(0, len(space)):
             space_dict[self.names[i]] = space[i]
+
+        remove_indexes = []
+        for i in range(0, len(space_dict[self.names[-1]])-1):
+            if space_dict[self.names[-1]][i] == self.exclude:
+                print space_dict[self.names[-1]][i]
+                remove_indexes.append(i)
+
+        #Remove this data point
+        for name in self.names:
+            space_dict[name] = np.delete(space_dict[name], np.s_[remove_indexes])
 
         return space_dict
 
