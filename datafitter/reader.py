@@ -6,11 +6,10 @@ import os
 
 
 class Reader:
-    def __init__(self, path, names, exclude=False):
+    def __init__(self, path, names):
         """
         A Reader which reads data from an excel file and builds a space that can be used to fit a curve.
         :param names: List of names in the order they appear in the excel file/dataframe, including the name of the
-        :param exclude: Result value to exclude from the fitting process
         output variable as last element in the list. Names are structured in the following way in the excel file:
 
         ****************** 3 *****
@@ -21,16 +20,14 @@ class Reader:
 
         :param path: Path to the excel file.
         """
-        self.exclude = exclude
         self.path = path
         self.names = names
         self.extension = os.path.splitext(path)[1]
-        self.space = self.space()
-        self.length = len(self.space[names[0]])
+        self.space = self.construct_space()
 
         print self.dataframe
         print '---------------------------------------------------------------------------'
-        print self.space
+        print pandas.DataFrame.from_dict(self.space)
 
     @property
     def dataframe(self):
@@ -40,7 +37,11 @@ class Reader:
         """
         return pandas.io.excel.read_excel(self.path)
 
-    def space(self):
+    @property
+    def length(self):
+        return len(self.space[self.names[0]])
+
+    def construct_space(self):
         """
         Build the point space where each combination of input points is unique and points to one output value.
         :return: A (n+1 x m*p*q) matrix with n the number of different inputs and mxpxq the product of the input
@@ -53,17 +54,32 @@ class Reader:
         for i in range(0, len(space)):
             space_dict[self.names[i]] = space[i]
 
+        return space_dict
+
+    def exclude(self, value, original=True):
+        """
+        Exclude a value from the current or original space
+        :param original: Use the original space if true, otherwise use the current space
+        :param value: The value to exclude
+        """
+        if original:
+            self.space = self.construct_space()
+
         remove_indexes = []
-        for i in range(0, len(space_dict[self.names[-1]])-1):
-            if space_dict[self.names[-1]][i] == self.exclude:
-                print space_dict[self.names[-1]][i]
+        for i in range(0, len(self.space[self.names[-1]])-1):
+            if self.space[self.names[-1]][i] == value:
                 remove_indexes.append(i)
 
         #Remove this data point
         for name in self.names:
-            space_dict[name] = np.delete(space_dict[name], np.s_[remove_indexes])
+            self.space[name] = np.delete(self.space[name], np.s_[remove_indexes])
 
-        return space_dict
+        if len(remove_indexes) == 1:
+            print str(len(remove_indexes)) + ' data point was removed from the result space'
+        elif len(remove_indexes) == 0:
+            print str(value) + ' was not found in the result space. No points were removed'
+        else:
+            print str(len(remove_indexes)) + ' data points where removed from the result space'
 
     def query(self, query):
         """
